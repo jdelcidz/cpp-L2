@@ -64,27 +64,24 @@ int main(int argc, char const *argv[])
         system("cls");
         cout << "Ingrese la descripcion del libro que busca o el nombre del autor: ";
         cin >> buscar;
-
+        cout << endl;
         // busqueda
         for (int i = 0; i < 39; i++)
         {
             string libro = libros[i][1];
             string libroEnminuscula = libro;
-            string autor = libros[i][3];
+            string autor = libros[i][2];
             string autorEnminuscula = autor;
             // transformamos a minuscula los string buscar y libro
             transform(libroEnminuscula.begin(), libroEnminuscula.end(), libroEnminuscula.begin(), ::tolower);
-            // transformamos a minuscula los string buscar y autor
             transform(autorEnminuscula.begin(), autorEnminuscula.end(), autorEnminuscula.begin(), ::tolower);
             transform(buscar.begin(), buscar.end(), buscar.begin(), ::tolower);
     
             if (libroEnminuscula.find(buscar) != string::npos || autorEnminuscula.find(buscar)!= string::npos) { // libro or autor
-                cout << "Libros encontrados: " << libro << endl; //mostrando el resultado de la busqueda anterior
+                cout << "Libros encontrados: " << libro << "  " << autor << endl; //mostrando el resultado de la busqueda anterior
+                
 
-            /* if (libroEnminuscula.find(buscar) != string::npos) {*/
-                cout << "autor encontrado: " << autor << endl;
-
-                cout << "Tambien te sugerimos estos libros: " << endl;
+                cout << "Tambien te sugerimos estos libros: " << endl << endl;
 
                 int sugerencia1 = rand() % 38 + 1;
                 int sugerencia2 = rand() % 38 + 1;
